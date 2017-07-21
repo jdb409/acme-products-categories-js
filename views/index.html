@@ -1,0 +1,10 @@
+{% extends "layout.html" %} 
+{% block body %}
+    <h1>Home</h1>
+    <form method = "post" action ='/index'>
+        <div class ='form-group well'>
+            <input type = "input" name = "category-name" placeholder="Category Name">
+            <input type = "submit" value = "Save">
+        </div>
+    </form>
+{% endblock %}
