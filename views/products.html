@@ -1,0 +1,28 @@
+{% extends 'layout.html' %} {% block body %}
+<h1> Products for {{name}} Category </h1>
+<form method="post" action='/categories/{{name}}/products' class='well'>
+    <div class='form-group'>
+        <input type="input" name='product' placeholder="Product Name">
+    </div>
+    <div class='form-group'>
+        <input class='btn btn-primary' type="submit" value="Save">
+    </div>
+</form>
+
+<div class="panel panel-default">
+    <ul class = 'list-group'>
+        {% for product in products %}
+            <li class = 'list-group-item'> {{product.name}} 
+            <form method = 'post' action = '/categories/{{name}}/products/{{product.id}}?_method=DELETE'>
+                <button class = 'btn btn-danger'>Delete</button>
+                </li>
+            </form>
+        {% endfor %}
+    </ul>
+</div>
+
+<form method ='post' action = '/categories/{{name}}?_method=DELETE'>
+    <button class ='btn btn-danger'>Delete Category</button>
+</form>
+
+{% endblock %}
