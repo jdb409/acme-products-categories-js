@@ -1,24 +1,13 @@
-<head>
-    <title> Acme Products </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-
-<body class = "container">
-    <ul class="nav nav-tabs">
-        <li role="presentation" class = 'active'><a href='/'>Home</a></li>
-        {% for category,product in categories %}
-        <li role="presentation"><a href='/categories/{{category}}/products'>{{category}}</a></li>
-        {% endfor %}
-    </ul>
-    <h1>Home</h1>
-    <form method="post" action='/categories' class='well'>
-        <div class='form-group'>
-            <input type="input" name="name" placeholder="Category Name" class = 'form-control'>
-        </div>
-        <div class='form-group'>
-            <input class='btn btn-primary' type="submit" value="Save">
-        </div>
-    </form>
-</body>
-
-</html>
+{% extends 'layout.html' %} {% block header %}
+<li class="active"><a href='/'>Home</a></li>
+{% endblock %} {% block body %}
+<h1>Home</h1>
+<form method="post" action='/categories' class='well'>
+    <div class='form-group'>
+        <input type="input" name="name" placeholder="Category Name" class='form-control'>
+    </div>
+    <div class='form-group'>
+        <input class='btn btn-primary' type="submit" value="Save">
+    </div>
+</form>
+{% endblock %}

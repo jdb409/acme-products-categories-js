@@ -7,8 +7,11 @@
 </head>
 
 <body class = "container">
+
      <ul class="nav nav-tabs" role="tablist">
-        <li><a href='/' data-toggle="tab">Home</a></li>
+         {% block header %}
+         <li><a href='/'>Home</a></li> 
+        {% endblock %}
         {% for category,product in categories %} 
             {% if category == name %}
             <li class = 'active'><a href='/categories/{{category}}/products'>{{category}}</a></li>

@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title> Acme Products </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-
-<body class = "container">
-     <ul class="nav nav-tabs" role="tablist">
-        <li><a href='/' data-toggle="tab">Home</a></li>
-        {% for category,product in categories %} 
-            {% if category == name %}
-            <li class = 'active'><a href='/categories/{{category}}/products'>{{category}}</a></li>
-            {% else %}
-            <li><a href='/categories/{{category}}/products'>{{category}}</a></li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    {% block body %} {% endblock %}
-</body>
+{% extends 'layout.html' %} 
+ {% block body %}
 <h1>{{error}}</h1>
-</html>
-
+{% endblock %}
