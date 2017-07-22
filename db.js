@@ -12,9 +12,22 @@ function deleteCategory(category){
     delete data[category];
 }
 
-function createProduct (category, product){
+function createProduct (category, product, price){
         var prodObj = {};
+        if (product.length < 1){
+            throw 'Enter a product!'
+        }
+
+        //update function, couldn't get with a forEach.  Why?
+        for (var i = 0; i < data[category].length; i++){
+            if (data[category][i].name == product){
+                data[category][i].price = price;
+                return;
+            }
+        }
+
         prodObj.name = product;
+        prodObj.price = price;
         var id = data[category].reduce(function(total, prod){
             if (prod.id > total){
                 total = prod.id;
@@ -37,7 +50,7 @@ function deleteProduct(category, productId){
     });
 }
 
-    
+
 module.exports = {
     createProduct: createProduct,
     createCategory: createCategory,
