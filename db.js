@@ -1,4 +1,7 @@
-var data = {};
+var data = {
+    foo: [{name: 'bar', price: '$5', id: 0}],
+    bar: [{name: 'baz', price: '$10', id: 0}]
+};
 
 function createCategory(category) {
     data[category] = [];
