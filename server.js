@@ -7,7 +7,6 @@ var db = require('./db');
 var port = process.env.PORT || 3000;
 var app = express();
 
-app.use('/public', express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({extender: false}));
 app.use(require('method-override')('_method'));
 
